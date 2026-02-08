@@ -1,0 +1,60 @@
+📊 Matplotlib Cheat Sheet: Visualizing Data Stories
+Workshop: Mastering Python for Data Science
+Host: Mr. Suresh R | Institution: PSGR Krishnammal College for Women
+🚀 1. Setup & Import
+code
+Python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Optional: Set a professional style (like 'ggplot', 'seaborn', or 'fivethirtyeight')
+plt.style.use('seaborn-v0_8-darkgrid')
+📈 2. Essential Plot Types
+Plot Type	Command	Best Used For...
+Line Plot	plt.plot(x, y)	Trends over time/continuous data
+Scatter Plot	plt.scatter(x, y)	Relationship/correlation between variables
+Bar Chart	plt.bar(x, height)	Comparing categories
+Histogram	plt.hist(data, bins=10)	Distribution of numerical data
+Pie Chart	plt.pie(sizes, labels=labels)	Parts of a whole (use sparingly!)[2][3][4][5]
+Box Plot	plt.boxplot(data)	Statistical outliers and quartiles
+🎨 3. Customization (Labels & Titles)
+code
+Python
+plt.plot(x, y)
+plt.title("Growth of Data Science 🚀", fontsize=14)
+plt.xlabel("Year")
+plt.ylabel("Demand (%)")
+plt.legend(["Trendline"], loc="upper left")
+plt.grid(True, linestyle='--', alpha=0.6)
+plt.show()
+🌈 4. Styling (Colors, Lines, & Markers)
+Parameter	Values	Example
+Color	'red', 'g', '#4C72B0'	color='purple'
+Line Style	'-', '--', '-.', ':'	linestyle='--'
+Marker	'o', 's', '^', '*'	marker='o'
+Linewidth	Numeric value	linewidth=2.5
+Transparency	0 to 1	alpha=0.5
+🪟 5. Subplots (Multiple Charts)
+code
+Python
+# Create a grid of 1 row and 2 columns
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+
+ax1.plot(x, y, color='blue')
+ax1.set_title("Line Chart")
+
+ax2.scatter(x, y, color='orange')
+ax2.set_title("Scatter Plot")
+
+plt.tight_layout() # Prevents overlapping
+plt.show()
+💾 6. Figure Management
+Command	Description
+plt.figure(figsize=(8, 5))	Set the size of your canvas (inches)
+plt.savefig("my_plot.png", dpi=300)	Save your chart in high quality
+plt.clf()	Clear the current figure
+plt.close()	Close the window (saves memory)
+💡 Pro-Tips for the Lab:
+Object-Oriented Approach: Using fig, ax = plt.subplots() is the industry standard for complex projects.
+Save Before Show: Always run plt.savefig() before plt.show(), or your saved file might be blank!
+Readability: Always add labels (xlabel, ylabel)—a graph without labels is just a drawing, not a data insight. ✨
