@@ -1,0 +1,68 @@
+🐼 Pandas Cheat Sheet: Mastering Data Wrangling
+Workshop: Mastering Python for Data Science
+Host: Mr. Suresh R | Institution: PSGR Krishnammal College for Women
+🚀 1. Setup & Import
+code
+Python
+import pandas as pd
+import numpy as np
+
+# Set options to see more rows/columns
+pd.set_option('display.max_columns', None)
+📂 2. Loading & Saving Data
+Format	Read Command	Write Command
+CSV	pd.read_csv('file.csv')	df.to_csv('new.csv', index=False)
+Excel	pd.read_excel('file.xlsx')	df.to_excel('new.xlsx')
+SQL	pd.read_sql(query, connection)	df.to_sql('table', connection)
+JSON	pd.read_json('file.json')	df.to_json('new.json')
+🔍 3. Inspecting Data
+code
+Python
+df.head(5)       # View first 5 rows
+df.tail(5)       # View last 5 rows
+df.info()        # Data types, memory, and null counts
+df.describe()    # Summary stats (mean, std, min, max)
+df.shape         # Number of (rows, columns)
+df.columns       # List of all column names
+df['column'].value_counts() # Count of unique values
+✂️ 4. Selection & Filtering
+df['col_name']: Select one column (Series).
+df[['col1', 'col2']]: Select multiple columns.
+df.iloc[0:5, 0:3]: Select by index position (rows 0-4, cols 0-2).
+df.loc[df['age'] > 21]: Filter rows based on a condition.
+df.query('age > 21'): Clean way to filter using a string.
+🧹 5. Data Cleaning (The "Janitor" Work)
+Command	Action
+df.dropna()	Remove all rows with missing values
+df.fillna(0)	Replace missing values with 0 (or a mean)
+df.drop_duplicates()	Remove identical rows
+df.rename(columns={'old':'new'})	Rename columns
+df.drop(['col1'], axis=1)	Delete a column
+df['col'] = df['col'].astype(int)	Change data type
+🔄 6. Manipulation & Transformation
+code
+Python
+# Create a new column
+df['total'] = df['price'] * df['quantity']
+
+# Sort data
+df.sort_values(by='total', ascending=False)
+
+# Apply a function to every row
+df['name_upper'] = df['name'].apply(lambda x: x.upper())
+
+# Map values
+df['gender'] = df['gender'].map({'M': 1, 'F': 0})
+📊 7. Grouping & Aggregation
+code
+Python
+# Group by a column and calculate the mean of others
+df.groupby('department')['salary'].mean()
+
+# Multiple aggregations
+df.groupby('city').agg({'age': 'mean', 'salary': 'sum'})
+🔗 8. Combining DataFrames
+Method	Description
+pd.concat([df1, df2])	Stack DataFrames on top of each other
+pd.merge(df1, df2, on='id')	SQL-style join on a common key
+df1.join(df2)	Join based on the index
