@@ -1,0 +1,66 @@
+🐍 NumPy Cheat Sheet: Mastering Data Science
+Workshop: Mastering Python for Data Science
+Host: Mr. Suresh R | Institution: PSGR Krishnammal College for Women
+🚀 1. Setup & Import
+code
+Python
+import numpy as np  # The standard industry convention
+🏗️ 2. Array Creation
+Command	Description
+np.array([1, 2, 3])	Create a 1D array
+np.array([(1,2,3),(4,5,6)])	Create a 2D array (Matrix)
+np.zeros((3, 4))	Create an array of zeros (3 rows, 4 cols)
+np.ones((2, 3))	Create an array of ones
+np.eye(4)	Create a 4x4 Identity Matrix
+np.arange(0, 10, 2)	Array from 0 to 10 with step 2
+np.linspace(0, 1, 5)	5 evenly spaced values between 0 and 1
+np.random.rand(3,3)	3x3 array of random floats (0-1)
+🔍 3. Inspecting Your Data
+code
+Python
+arr.shape    # Dimensions (rows, columns)
+arr.len()    # Length of first dimension
+arr.ndim     # Number of dimensions
+arr.size     # Number of elements
+arr.dtype    # Data type (int64, float64, etc.)
+arr.astype(float) # Convert array to a different type
+[1][2][3]
+✂️ 4. Indexing & Slicing
+arr[0]: Get element at index 0.
+arr[1, 2]: Get element at row 1, column 2.[2][4]
+arr[0:3]: Get elements from index 0 to 2.
+arr[: , 1]: Get all rows from column 1.
+arr[arr > 5]: Boolean Indexing (returns values greater than 5).
+🔄 5. Array Manipulation
+Function	What it does
+arr.reshape(3, -1)	Reshape data (let NumPy calculate columns)
+arr.flatten()	Collapse a multi-dimensional array into 1D
+arr.T or arr.transpose()	Transpose the matrix (swap rows/cols)
+np.concatenate((a, b))	Join two arrays
+np.vstack((a, b))	Stack arrays vertically
+np.hstack((a, b))	Stack arrays horizontally
+🔢 6. Mathematical Operations (Vectorization)
+code
+Python
+# Element-wise operations
+np.add(a, b)      # a + b
+np.subtract(a, b) # a - b
+np.multiply(a, b) # a * b
+np.divide(a, b)   # a / b
+np.exp(a)         # Exponential
+np.sqrt(a)        # Square root
+📊 7. Basic Statistics
+Method	Description
+arr.sum()	Sum of all elements
+arr.mean()	Average value
+arr.std()	Standard Deviation
+arr.min() / arr.max()	Find range boundaries
+arr.argmin()	Index of the minimum value
+np.median(arr)	Find the middle value
+💾 8. Saving & Loading
+code
+Python
+np.save('my_array.npy', arr)    # Save to binary file
+arr = np.load('my_array.npy')   # Load from binary file
+np.savetxt('data.csv', arr, delimiter=',') # Save as CSV
+
